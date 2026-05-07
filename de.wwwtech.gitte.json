@@ -22,6 +22,29 @@
   },
   "modules": [
     {
+      "name": "git",
+      "buildsystem": "simple",
+      "build-commands": [
+        "make configure",
+        "./configure --prefix=/app NO_PERL=1 NO_TCLTK=1 NO_GETTEXT=1 NO_INSTALL_HARDLINKS=1 NO_SVN_TESTS=1",
+        "make all -j${FLATPAK_BUILDER_N_JOBS:-4} NO_PERL=1 NO_TCLTK=1 NO_GETTEXT=1 NO_INSTALL_HARDLINKS=1",
+        "make install NO_PERL=1 NO_TCLTK=1 NO_GETTEXT=1 NO_INSTALL_HARDLINKS=1"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "url": "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.54.0.tar.xz",
+          "sha256": "f689162364c10de79ef89aa8dbf48731eb057e34edbbd20aca510ce0154681a3"
+        }
+      ],
+      "cleanup": [
+        "/share/git-core/templates",
+        "/share/git-gui",
+        "/share/gitk",
+        "/share/gitweb"
+      ]
+    },
+    {
       "name": "gitte",
       "builddir": true,
       "buildsystem": "meson",
@@ -29,8 +52,8 @@
         {
           "type": "git",
           "url": "https://codeberg.org/ckruse/Gitte.git",
-          "tag": "0.1.10",
-          "commit": "d664d637913485dafa0939554874a66f8c85eb1e"
+          "tag": "0.2.0",
+          "commit": "e0520228922c3c51a19f76690dac18f1260f12b2"
         },
         "cargo-sources.json"
       ],
