@@ -52,8 +52,8 @@
         {
           "type": "git",
           "url": "https://codeberg.org/ckruse/Gitte.git",
-          "tag": "0.2.0",
-          "commit": "e0520228922c3c51a19f76690dac18f1260f12b2"
+          "tag": "0.3.0",
+          "commit": "a6c3380ba0e28ec7f673dd6dd927d95506b0d871"
         },
         "cargo-sources.json"
       ],
