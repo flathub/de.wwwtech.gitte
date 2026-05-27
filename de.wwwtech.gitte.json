@@ -22,6 +22,17 @@
   },
   "modules": [
     {
+      "name": "gitte-host-signing-shims",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -d /app/bin",
+        "printf '#!/bin/sh\\nexec flatpak-spawn --host gpg \"$@\"\\n' > /app/bin/gitte-host-gpg",
+        "printf '#!/bin/sh\\nexec flatpak-spawn --host gpgsm \"$@\"\\n' > /app/bin/gitte-host-gpgsm",
+        "printf '#!/bin/sh\\nexec flatpak-spawn --host ssh-keygen \"$@\"\\n' > /app/bin/gitte-host-ssh-keygen",
+        "chmod +x /app/bin/gitte-host-gpg /app/bin/gitte-host-gpgsm /app/bin/gitte-host-ssh-keygen"
+      ]
+    },
+    {
       "name": "git",
       "buildsystem": "simple",
       "build-commands": [
@@ -52,8 +63,8 @@
         {
           "type": "git",
           "url": "https://codeberg.org/ckruse/Gitte.git",
-          "tag": "0.4.1",
-          "commit": "8fd90c166b287b29d4f2b8446e08ddd2f2512bca"
+          "tag": "0.5.0",
+          "commit": "d352943f5521bc646c20fcaed3324526d73ef25b"
         },
         "cargo-sources.json"
       ],
