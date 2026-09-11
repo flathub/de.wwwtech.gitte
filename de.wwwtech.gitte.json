@@ -39,7 +39,7 @@
         "make configure",
         "./configure --prefix=/app NO_PERL=1 NO_TCLTK=1 NO_GETTEXT=1 NO_INSTALL_HARDLINKS=1 NO_SVN_TESTS=1",
         "make all -j${FLATPAK_BUILDER_N_JOBS:-4} NO_PERL=1 NO_TCLTK=1 NO_GETTEXT=1 NO_INSTALL_HARDLINKS=1",
-        "make install NO_PERL=1 NO_TCLTK=1 NO_GETTEXT=1 NO_INSTALL_HARDLINKS=1"
+        "make strip install NO_PERL=1 NO_TCLTK=1 NO_GETTEXT=1 NO_INSTALL_HARDLINKS=1"
       ],
       "sources": [
         {
@@ -56,6 +56,29 @@
       ]
     },
     {
+      "name": "git-lfs",
+      "buildsystem": "simple",
+      "build-commands": [
+        "install -d /app/libexec/git-core /app/etc",
+        "cp git-lfs /app/libexec/git-core/",
+        "/app/bin/git lfs install --system"
+      ],
+      "sources": [
+        {
+          "type": "archive",
+          "only-arches": ["x86_64"],
+          "url": "https://github.com/git-lfs/git-lfs/releases/download/v3.7.1/git-lfs-linux-amd64-v3.7.1.tar.gz",
+          "sha256": "1c0b6ee5200ca708c5cebebb18fdeb0e1c98f1af5c1a9cba205a4c0ab5a5ec08"
+        },
+        {
+          "type": "archive",
+          "only-arches": ["aarch64"],
+          "url": "https://github.com/git-lfs/git-lfs/releases/download/v3.7.1/git-lfs-linux-arm64-v3.7.1.tar.gz",
+          "sha256": "73a9c90eeb4312133a63c3eaee0c38c019ea7bfa0953d174809d25b18588dd8d"
+        }
+      ]
+    },
+    {
       "name": "gitte",
       "builddir": true,
       "buildsystem": "meson",
@@ -63,8 +86,8 @@
         {
           "type": "git",
           "url": "https://codeberg.org/ckruse/Gitte.git",
-          "tag": "0.9.1",
-          "commit": "4dbd65e09d0fcfc016882b6aa9272caaaf486912"
+          "tag": "0.10.0",
+          "commit": "610cbc4b2fa45fd2edeae41c37e21b21955abda3"
         },
         "cargo-sources.json"
       ],
