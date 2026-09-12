@@ -3330,14 +3330,14 @@
     {
         "type": "archive",
         "archive-type": "tar-gzip",
-        "url": "https://static.crates.io/crates/uuid/uuid-1.26.0.crate",
-        "sha256": "b5772d71c9be8a8a6ac2117d949c5b224c1b72241bb611d9a3012edcf8af7812",
-        "dest": "cargo/vendor/uuid-1.26.0"
+        "url": "https://static.crates.io/crates/uuid/uuid-1.26.1.crate",
+        "sha256": "2ef6dac1e96601b4fb3acccccff2139741fcb757cb9a36089bf5be91cfb285ce",
+        "dest": "cargo/vendor/uuid-1.26.1"
     },
     {
         "type": "inline",
-        "contents": "{\"package\": \"b5772d71c9be8a8a6ac2117d949c5b224c1b72241bb611d9a3012edcf8af7812\", \"files\": {}}",
-        "dest": "cargo/vendor/uuid-1.26.0",
+        "contents": "{\"package\": \"2ef6dac1e96601b4fb3acccccff2139741fcb757cb9a36089bf5be91cfb285ce\", \"files\": {}}",
+        "dest": "cargo/vendor/uuid-1.26.1",
         "dest-filename": ".cargo-checksum.json"
     },
     {
